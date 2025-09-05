@@ -1,0 +1,39 @@
+        <div class="mx-auto max-w-7xl px-2 sm:px-4 lg:divide-y lg:divide-white/10 lg:px-8">
+          <div class="relative flex h-16 justify-between">
+            <div class="relative z-0 flex flex-1 items-center justify-center px-2 sm:absolute sm:inset-0">
+              <div class="grid w-full grid-cols-1 sm:max-w-xs">
+                <h1 class="text-2xl text-center font-serif font-thin">{{ site_title }}</h1>
+              </div>
+            </div>
+            <div class="relative z-10 ml-auto flex items-center lg:hidden">
+              <!-- Mobile menu button -->
+              <button type="button" command="--toggle" commandfor="mobile-menu" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
+                <span class="absolute -inset-0.5"></span>
+                <span class="sr-only">Open menu</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                  <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                  <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <nav aria-label="Global" class="hidden mx-auto lg:flex lg:justify-center lg:space-x-8 lg:py-2 ">
+            <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
+            {% for item in navItems %}
+            <a href="{{ item.url }}" {{ current_path starts with item.url ? '}aria-current="page"' : '' }} class="inline-flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">{{ item.title }}</a>
+            {% endfor %}
+          </nav>
+        </div>
+
+        <el-disclosure id="mobile-menu" hidden class="contents lg:hidden">
+          <nav aria-label="Global">
+            <div class="space-y-1 px-2 pt-2 pb-3">
+              <!-- Current: "bg-white/5 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
+              {% for item in navItems %}
+              <a href="{{ item.url }}" {{ current_path starts with item.url ? '}aria-current="page"' : '' }} class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">{{ item.title }}</a>
+              {% endfor %}
+            </div>
+          </nav>
+        </el-disclosure>
