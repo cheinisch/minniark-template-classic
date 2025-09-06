@@ -22,7 +22,7 @@
           <nav aria-label="Global" class="hidden mx-auto lg:flex lg:justify-center lg:space-x-8 lg:py-2 ">
             <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
             {% for item in navItems %}
-            <a href="{{ item.url }}" {{ current_path starts with item.url ? '}aria-current="page"' : '' }} class="inline-flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">{{ item.title }}</a>
+            <a href="{{ item.url }}" {{ current_path starts with item.url ? 'aria-current="page"' : '' }}  {{ current_path starts with item.url ? 'class="inline-flex items-center border-b border-sky-400 py-2 text-sm font-medium"' : 'class="inline-flex items-center hover:border-b hover:border-sky-300 py-2 text-sm font-medium"' }}">{{ item.title }}</a>
             {% endfor %}
           </nav>
         </div>
@@ -32,7 +32,7 @@
             <div class="space-y-1 px-2 pt-2 pb-3">
               <!-- Current: "bg-white/5 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
               {% for item in navItems %}
-              <a href="{{ item.url }}" {{ current_path starts with item.url ? '}aria-current="page"' : '' }} class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">{{ item.title }}</a>
+              <a href="{{ item.url }}" {{ current_path starts with item.url ? 'aria-current="page"' : '' }} class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">{{ item.title }}</a>
               {% endfor %}
             </div>
           </nav>
