@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }} - {{ site_title }}</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
+  </head>
+  <body class="bg-neutral-50">
+    <div id="wrapper" class="mx-auto md:my-10 py-5 lg:max-w-7xl bg-white md:rounded-sm md:shadow-sm">
+      <header class="relative after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10">
+        {% include "components/navigation.twig" %}
+      </header>
+      <main class="w-full">
+        <div class="rounded-md m-5">
+          <div class="py-5">
+            <h2 class="text-center text-xl font-serif font-thin">{{ page.title }}</h2>
+            <div id="content" class="font-light">
+              {{ page.description|raw }}
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="w-full">
+
+      </footer>
+    </div>
+  </body>
+</html>
